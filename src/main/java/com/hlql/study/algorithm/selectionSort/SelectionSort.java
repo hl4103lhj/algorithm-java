@@ -10,18 +10,43 @@ package com.hlql.study.algorithm.selectionSort;
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int[] arr = {1, 12, 3, 12, 3, 12, 4, 124, 0, 1, 23, 4, 1, 1, 2341, 1, 8};
+        //int[] arr = {1, 12, 3, 12, 3, 12, 4, 124, 0, 1, 23, 4, 1, 1, 2341, 1, 8};
+        //
+        //ascSort(arr);
+        //for (int i = 0; i < arr.length; i++) {
+        //    System.out.print(arr[i] + ",");
+        //}
+        //
+        //System.out.println("\r\n------------ desc");
+        //
+        //descSort(arr);
+        //for (int i = 0; i < arr.length; i++) {
+        //    System.out.print(arr[i] + ",");
+        //}
 
-        ascSort(arr);
+        Integer[] arr = {1, 12, 3, 12, 3, 12, 4, 124, 0, 1, 23, 4, 1, 1, 2341, 1, 8};
+        sort(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + ",");
         }
+    }
 
-        System.out.println("\r\n------------ desc");
-
-        descSort(arr);
+    public static <T extends Comparable<? super T>> void sort(T[] arr) {
+        int minIndex;
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+            minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minIndex].compareTo(arr[j]) > 0) {
+                    minIndex = j;
+                }
+            }
+
+            if (minIndex != i) {
+                T tmp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = tmp;
+            }
+
         }
     }
 

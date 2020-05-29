@@ -10,18 +10,36 @@ package com.hlql.study.algorithm.bubbleSort;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 0, 1, 234, 12, 3, 1, 23, 4, 132, 513, 2};
+        //int[] arr = {1, 2, 3, 0, 1, 234, 12, 3, 1, 23, 4, 132, 513, 2};
+        //
+        //ascSort(arr);
+        //for (int i = 0; i < arr.length; i++) {
+        //    System.out.print(arr[i] + ",");
+        //}
+        //
+        //System.out.println("\r\n------------ desc");
+        //
+        //descSort(arr);
+        //for (int i = 0; i < arr.length; i++) {
+        //    System.out.print(arr[i] + ",");
+        //}
 
-        ascSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+        Integer[] arr1 = {1, 2, 3, 0, 1, 234, 12, 3, 1, 23, 4, 132, 513, 2};
+        sort(arr1);
+        for (int i = 0; i < arr1.length; i++) {
+            System.out.print(arr1[i] + ",");
         }
+    }
 
-        System.out.println("\r\n------------ desc");
-
-        descSort(arr);
+    public static <T extends Comparable<? super T>> void sort(T[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+            for (int j = i; j < arr.length; j++) {
+                if (arr[i].compareTo(arr[j]) > 0) {
+                    T tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
         }
     }
 
